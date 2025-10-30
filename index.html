@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Batch PDF Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body { font-family: Arial; background: #e0f2fe; padding: 20px; margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 10px; padding: 30px; }
+        h1 { color: #1e293b; }
+        textarea { width: 100%; height: 200px; padding: 10px; border: 2px solid #ccc; border-radius: 5px; font-family: monospace; }
+        button { padding: 12px 24px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin: 10px 5px; }
+        .btn-primary { background: #6366f1; color: white; }
+        .btn-success { background: #22c55e; color: white; }
+        .error { background: #fef2f2; color: #991b1b; padding: 15px; border-radius: 5px; margin: 10px 0; display: none; }
+        .pdf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
+        .pdf-card { border: 1px solid #ccc; padding: 15px; border-radius: 5px; background: #f9fafb; }
+        .pdf-preview { background: white; padding: 10px; text-align: center; margin: 10px 0; }
+        .pdf-preview img { max-height: 150px; max-width: 100%; }
+        #results { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Batch PDF Generator</h1>
+        <p>Generate custom-sized PDFs with yellow backgrounds</p>
+        <label>Paste your list (one per line):</label>
+        <textarea id="inputText" placeholder="DCM-GOLD-AND-PAWN-6X4-241025"></textarea>
+        <div id="error" class="error"></div>
+        <button id="generateBtn" class="btn-primary">Generate PDFs</button>
+        <div id="results">
+            <h2>Generated PDFs (<span id="pdfCount">0</span>)</h2>
+            <button id="downloadAllBtn" class="btn-success">Download All</button>
+            <div id="pdfGrid" class="pdf-grid"></div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
